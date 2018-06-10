@@ -1,0 +1,72 @@
+namespace org.ayuda
+
+participant Lender identified by aadhar {
+  o String aadhar
+  o String name
+  o String email
+  o PayLoan[] paidforLoan
+}
+
+participant Borrower identified by aadhar {
+  o String aadhar
+  o String name
+  o String email optional
+  o String phone
+  o PastRecord pastRecord
+  o Loan loan optional
+}
+
+concept PastRecord {
+  o String industry
+  o Integer yearInBusiness
+  o Integer fundsTillNow
+}
+
+concept Interest {
+  -->Lender lender
+  o String rate
+}
+asset Loan identified by loanId{
+  o String loanId
+  --> Borrower borrower
+  o String fieldPartnerId
+  o Integer loanAmount
+  o Integer amountFulfilled
+  o String story
+  o Integer loanDuration
+  o PayLoan[] payLoan
+  o Interest[] interest optional
+}
+
+transaction CreateLender {
+  o String aadhar
+  o String name
+  o String email
+}
+
+transaction CreateBorrower {
+  o String aadhar
+  o String name
+  o String email optional
+  o String phone
+  o PastRecord pastrecord
+}
+transaction PayLoan {
+  -->Loan loan
+  -->Lender lender
+  o Integer amount
+}
+
+transaction PayBack {
+  -->Loan loan
+  o Integer amount
+}
+
+transaction CreateLoan {
+  o String loanId
+  -->Borrower borrower
+  o String fieldPartnerId
+  o Integer loanAmount
+  o String story
+  o Integer loanDuration
+}
