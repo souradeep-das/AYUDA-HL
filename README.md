@@ -1,6 +1,6 @@
 # Ayuda - Yet another optimised P2P Microfinance system
 
-[![TechGig CodeGladiator 2018](https://static.techgig.com/Themes/Release/images/cg2018_images/cg2018-logo.png)](https://www.techgig.com/codegladiators/blockchain) [![Satoshi Next Tech Lab](https://avatars3.githubusercontent.com/u/32188729?s=200&v=4)](https://github.com/SatoshiNextTechLab)
+[![TechGig CodeGladiator 2018](https://static.techgig.com/Themes/Release/images/cg2018_images/cg2018-logo.png)](https://www.techgig.com/codegladiators/blockchain) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Satoshi Next Tech Lab](https://avatars3.githubusercontent.com/u/32188729?s=200&v=4)](https://github.com/SatoshiNextTechLab)
 
 **_This project won the second prize of ₹1,00,000 at the Blockchain Hackathon_**.
 
@@ -10,11 +10,12 @@ Ayuda is a not for profit, blockchain based peer-peer money lending platform. Ou
 
 ## How Ayuda is a problem-solution fit
 
-![Ayuda Solution Chart](https://github.com/souradeep-das/AYUDA/raw/master/Capture7.PNG){:class="img-responsive"}
+![Ayuda Solution Chart](https://github.com/souradeep-das/AYUDA/raw/master/Capture7.PNG)
 
 ## How Ayuda works
 
-![Ayuda Working](https://github.com/souradeep-das/AYUDA/raw/master/Capture6.PNG){:class="img-responsive"}
+![Ayuda Working](https://github.com/souradeep-das/AYUDA/raw/master/Capture6.PNG)
+![Ayuda FP](https://raw.githubusercontent.com/souradeep-das/AYUDA-HL/master/DOCS/Why%20Field%20Partners-image.png)
 
 ## Read the Whitepaper (HyperLedger and Ethereum)
 
@@ -24,6 +25,17 @@ Ayuda is a not for profit, blockchain based peer-peer money lending platform. Ou
 
 [![Product Demo](https://img.youtube.com/vi/qcIV0KIzFwA/0.jpg)](https://www.youtube.com/watch?v=qcIV0KIzFwA) [![Concept Demo](https://img.youtube.com/vi/tUHbLQloUxg/0.jpg)](https://www.youtube.com/watch?v=tUHbLQloUxg)
 
+## Get started with a Quick Demo
+
+```
+git clone https://github.com/souradeep-das/AYUDA-HL
+
+composer-playground
+
+node ./app/index.js  
+```
+
+Head over to <a href="http://localhost:3000">localhost:3000</a>.
 
 
 [![HyperLedger](https://i.imgur.com/YUyaXmf.png)](https://www.hyperledger.org/)
