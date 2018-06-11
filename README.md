@@ -1,4 +1,4 @@
-# Ayuda - Yet another optimised P2P Microfinance system
+# Ayuda - The Next-gen P2P Microfinance system
 
 [![TechGig CodeGladiator 2018](https://static.techgig.com/Themes/Release/images/cg2018_images/cg2018-logo.png)](https://www.techgig.com/codegladiators/blockchain) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Satoshi Next Tech Lab](https://avatars3.githubusercontent.com/u/32188729?s=200&v=4)](https://github.com/SatoshiNextTechLab)
 
