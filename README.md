@@ -30,7 +30,11 @@ Ayuda is a not for profit, blockchain based peer-peer money lending platform. Ou
 ```
 git clone https://github.com/souradeep-das/AYUDA-HL
 
-composer-playground
+composer network install --card PeerAdmin@hlfv1 --archiveFile ayuda@.bna
+
+composer network start --networkName ayuda --networkVersion 0.0.1 --networkAdmin admin --networkAdminEnrollSecret adminpw --card PeerAdmin@hlfv1 --file networkadmin.card
+
+composer-rest-server
 
 node ./app/index.js  
 ```
