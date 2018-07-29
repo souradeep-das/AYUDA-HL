@@ -252,28 +252,23 @@ color: orange;
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" href="/"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        <a class="active-menu"><i class="fa fa-dashboard"></i> Borrower Dashboard</a>
                     </li>
 
 
 
                     <li>
-                        <a href="/bloansummary"><i class="fa fa-table"></i> Loan Summary</a>
+                        <a href="/bloansummary"><i class="fa fa-table"></i> Borrower Loan Summary</a>
                     </li>
                     <li>
                         <a href="/borrowerForm"><i class="fa fa-edit"></i> Request for a Loan</a>
                     </li>
-
-                    <li>
-                        <a href="/payback"><i class="fa fa-fw fa-file"></i> My Loans</a>
-                    </li>
-
                     <li>
                         <a href="/borrowerRegister"><i class="fa fa-fw fa-file"></i> Borrower Register</a>
                     </li>
 
                     <li>
-                        <a href="/payback"><i class="fa fa-fw fa-file"></i> <b>Pay Back Loan</b></a>
+                        <a href="/payback"><i class="fa fa-fw fa-file"></i> Pay Back Loan</a>
                     </li>
                 </ul>
 
@@ -288,20 +283,26 @@ color: orange;
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Dashboard <small>
+                            Borrower Dashboard <small><br>
+                                Your credit Rating:
 <div id="starry"></div>
 </small>
                         </h1>
                     </div>
                 </div>
                 <!-- /. ROW  -->
+                <h1>Your Active Loans</h1><br>
+            <div class="row">
+                <div id= "boxx"></div>
+            </div>
 
+            <h1>Your Stats</h1><br>
                 <div class="row">
                     <div class="col-md-3 col-sm-12 col-xs-12">
                         <div class="panel panel-primary text-center no-boder bg-color-green">
                             <div class="panel-body">
                                 <i class="fa fa-bar-chart-o fa-5x"></i>
-                                <h3>Rs.18,553</h3>
+                                <h3 id="totalReq"></h3>
                             </div>
                             <div class="panel-footer back-footer-green">
                                 Total Loan Requested for
@@ -313,10 +314,10 @@ color: orange;
                         <div class="panel panel-primary text-center no-boder bg-color-blue">
                             <div class="panel-body">
                                 <i class="fa fa-shopping-cart fa-5x"></i>
-                                <h3>Rs.15,000 </h3>
+                                <h3 id="totalAcc"></h3>
                             </div>
                             <div class="panel-footer back-footer-blue">
-                                Total loan accepted
+                                Total loan lendings
 
                             </div>
                         </div>
@@ -325,22 +326,10 @@ color: orange;
                         <div class="panel panel-primary text-center no-boder bg-color-red">
                             <div class="panel-body">
                                 <i class="fa fa fa-comments fa-5x"></i>
-                                <h3>15 </h3>
+                                <h3 id="totalAppl"></h3>
                             </div>
                             <div class="panel-footer back-footer-red">
-                                Reviews and Comments
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-brown">
-                            <div class="panel-body">
-                                <i class="fa fa-users fa-5x"></i>
-                                <h3>4.7/5.0 </h3>
-                            </div>
-                            <div class="panel-footer back-footer-brown">
-                                Your Rating
+                                Total Loans applied for
 
                             </div>
                         </div>
@@ -380,6 +369,34 @@ color: orange;
       html = "<span class=\"fa fa-star checked\"></span><span class=\"fa fa-star checked\"></span><span class=\"fa fa-star checked\"></span><span class=\"fa fa-star checked\"></span>";
     }
     document.getElementById("starry").innerHTML = html;
+
+    var data =  "<%= datajson %>";
+
+    let totalReq = 0;
+    let totalAcc = 0;
+    let totalAppl = 0;
+
+    data = JSON.stringify(data);
+    data = JSON.parse(data);
+    data = data.replace(new RegExp("&quot;", 'g'), "\"");
+    data = JSON.parse(data);
+
+    var html = "";
+    for(var i = 0; i < data.length; i++) {
+      console.log(data[i]);
+
+      totalReq += data[i].loanAmount;
+      totalAcc += data[i].amountFulfilled;
+      totalAppl = i + 1;
+
+      html += "<div class=\"col-md-4 col-sm-4\"><div class=\"panel panel-primary\"><div class=\"panel-heading\">" + data[i].borrower + "</div><div class=\"panel-body\"><p>" + "Loan ID : " + data[i].loanId + "<br>" + "Amount Fulfilled : " + data[i].amountFulfilled + "<br>" + "Field Partner ID : " + data[i].fieldPartnerId + "<br>" + "Loan Amount : " + data[i].loanAmount + "<br>" + "Loan Duration : " + data[i].loanDuration + "<br>" + "Loan Story : " + data[i].story + "<br>" + "</p></div> <div class=\"progress\"><div class=\"progress-bar progress-bar-striped active\" role=\"progressbar\"aria-valuenow=\"" + data[i].amountFulfilled + "\" aria-valuemin=\"0\" aria-valuemax=\"" + data[i].loanAmount + "\" style=\"width:" + (Number(data[i].amountFulfilled)*100)/Number(data[i].loanAmount) + "%\">" + data[i].amountFulfilled + " / " + data[i].loanAmount + "</div></div><div class=\"panel-footer\"><a href=\"/payloansnext\"><button id=\"" + data[i].loanId +  "\" class=\"btn btn-success\">Support</button></a></div></div></div>"
+    }
+
+
+    document.getElementById("boxx").innerHTML = html;
+    document.getElementById("totalReq").innerHTML = "₹" + totalReq;
+    document.getElementById("totalAcc").innerHTML = "₹" + totalAcc;
+    document.getElementById("totalAppl").innerHTML = totalAppl;
 
     </script>
 

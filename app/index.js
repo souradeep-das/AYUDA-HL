@@ -43,7 +43,13 @@ app.get('/', (req, res, next) => {
 })
 
 app.get('/borrowerDashboard', (req, res, next) => {
-  res.render('web/public/borrower-index.html', {fs: makeit5star})
+  request.get("http://54.201.248.124:3000/api/Loan", (error, response, body) => {
+    var data = JSON.parse(body);
+    data = JSON.stringify(data);
+    for(var i = 0; i < data.length; i++) {
+    }
+    res.render('web/public/borrower-index.html', {fs: makeit5star, datajson: data});
+  });
 });
 
 app.get('/lenderDashboard', (req, res, next) => {
@@ -83,7 +89,7 @@ app.post('/createBorrower', (req, res, next) => {
 };
 
   request.post({
-    url: "http://localhost:3000/api/CreateBorrower",
+    url: "http://54.201.248.124:3000/api/CreateBorrower",
     json: newbjson
   }, function(error, response, body) {
     console.log(newbjson);
@@ -105,7 +111,7 @@ app.post('/createLender', (req, res, next) => {
 };
 
   request.post({
-    url: "http://localhost:3000/api/CreateLender",
+    url: "http://54.201.248.124:3000/api/CreateLender",
     json: newljson
   }, function(error, response, body) {
     console.log(newljson);
@@ -133,14 +139,14 @@ app.post('/newloan', (req, res, next) => {
 }
 
   request.post({
-    url: "http://localhost:3000/api/CreateLoan",
+    url: "http://54.201.248.124:3000/api/CreateLoan",
     json: newloanjson
   }, function(error, response, body) {
     console.log(newloanjson);
     //console.log(response);
   });
 
-  res.render('web/public/fp-index.html')
+  res.render('web/public/index.html')
 });
 
 app.post('/makePayment', (req, res, next) => {
@@ -155,7 +161,7 @@ app.post('/makePayment', (req, res, next) => {
 };
 
   request.post({
-    url: "http://localhost:3000/api/PayLoan",
+    url: "http://54.201.248.124:3000/api/PayLoan",
     json: newpjson
   }, function(error, response, body) {
     console.log(newpjson);
@@ -175,14 +181,14 @@ app.post('/repayLoan', (req, res, next) => {
 };
 
   request.post({
-    url: "http://localhost:3000/api/PayBack",
+    url: "http://54.201.248.124:3000/api/PayBack",
     json: newrjson
   }, function(error, response, body) {
     console.log(newrjson);
     //console.log(response);
   });
 
-  request.get("http://localhost:3000/api/Loan", (error, response, body) => {
+  request.get("http://54.201.248.124:3000/api/Loan", (error, response, body) => {
     var data = JSON.parse(body);
     data = JSON.stringify(data);
     for(var i = 0; i < data.length; i++) {
@@ -204,7 +210,7 @@ app.post('/verifyloan', (req, res, next) => {
 });
 
 app.get('/payloans', (req, res, next) => {
-  request.get("http://localhost:3000/api/Loan", (error, response, body) => {
+  request.get("http://54.201.248.124:3000/api/Loan", (error, response, body) => {
     var data = JSON.parse(body);
     data = JSON.stringify(data);
     for(var i = 0; i < data.length; i++) {
@@ -224,11 +230,21 @@ app.get('/payback', (req, res, next) => {
 });
 
 app.get('/bloansummary', (req, res, next) => {
-  res.render('web/public/borrower-table.html')
+  request.get("http://54.201.248.124:3000/api/Loan", (error, response, body) => {
+    var data = JSON.parse(body);
+    data = JSON.stringify(data);
+    for(var i = 0; i < data.length; i++) {
+        console.log(data[i]);
+        console.log("------------")
+    }
+    makeit5star = true;
+    res.render('web/public/borrower-empty.html', {datajson: data});
+
+  });
 });
 
 app.get('/xx', (req, res, next) => {
-  request.get("http://localhost:3000/api/CreateTrainer", (error, response, body) => {
+  request.get("http://54.201.248.124:3000/api/CreateTrainer", (error, response, body) => {
    var data = JSON.parse(body);
    console.log(response.body);
    var myjson = JSON.stringify(response.body);
@@ -252,11 +268,11 @@ var samplejson = {
   "transactionId": "",
   "timestamp": "2018-06-07T09:44:03.490Z"
 };
-//http://localhost:3000/api/CreateTrainer
+//http://54.201.248.124:3000/api/CreateTrainer
 app.get('/yy', (req, res, next) => {
 
   request.post({
-    url: "http://localhost:3000/api/CreateTrainer",
+    url: "http://54.201.248.124:3000/api/CreateTrainer",
     json: samplejson
   }, function(error, response, body) {
     console.log("hello");

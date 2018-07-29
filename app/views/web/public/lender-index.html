@@ -15,6 +15,7 @@
     <link href="css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <script src="https://cdn.jsdelivr.net/npm/frappe-charts@1.1.0/dist/frappe-charts.min.iife.js"></script>
 </head>
 
 <body>
@@ -245,16 +246,11 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        <a class="active-menu"><i class="fa fa-dashboard"></i> Lender Dashboard</a>
                     </li>
 
-
-
                     <li>
-                        <a href="table.html"><i class="fa fa-table"></i> Investment Summary</a>
-                    </li>
-                    <li>
-                        <a href="/payloans"><i class="fa fa-edit"></i> Browse Loans</a>
+                        <a href="/payloans"><i class="fa fa-edit"></i> Lender Browse Loans</a>
                     </li>
 
 
@@ -274,63 +270,14 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Dashboard <small>Your Loan Summary</small>
+                            Lender Dashboard
                         </h1>
-                    </div>
-                </div>
-                <!-- /. ROW  -->
 
-                <div class="row">
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-green">
-                            <div class="panel-body">
-                                <i class="fa fa-bar-chart-o fa-5x"></i>
-                                <h3>Rs.18,553</h3>
-                            </div>
-                            <div class="panel-footer back-footer-green">
-                                Total Invested Amount
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-blue">
-                            <div class="panel-body">
-                                <i class="fa fa-shopping-cart fa-5x"></i>
-                                <h3>Rs.25,000 </h3>
-                            </div>
-                            <div class="panel-footer back-footer-blue">
-                                Returns Obtained
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-red">
-                            <div class="panel-body">
-                                <i class="fa fa fa-comments fa-5x"></i>
-                                <h3>15 </h3>
-                            </div>
-                            <div class="panel-footer back-footer-red">
-                                Reviews and Comments
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-brown">
-                            <div class="panel-body">
-                                <i class="fa fa-users fa-5x"></i>
-                                <h3>12 </h3>
-                            </div>
-                            <div class="panel-footer back-footer-brown">
-                                Total no. of loans innvested in
-
-                            </div>
-                        </div>
+                        <center><h2>Ayuda convincingly offers you better returns</h2></center>
                     </div>
                 </div>
 
+                <figure id="frost-chart"></figure>
 
 
                 <!-- /. ROW  -->
@@ -354,6 +301,53 @@
     <script src="js/morris/morris.js"></script>
     <!-- Custom Js -->
     <script src="js/custom-scripts.js"></script>
+    <script>
+
+    let chart = new frappe.Chart( "#frost-chart", { // or DOM element
+      data: {
+      labels: ["Rs.1200.00", "Rs.1500.00", "Rs.1800.00", "Rs.2100.00",
+        "Rs.2400.00", "Rs.2700.00", "Rs.3000.00", "Rs.3300.00"],
+
+      datasets: [
+        {
+          name: "Paisa Dukaan", chartType: 'line',
+          values: [1200 , 1200 , 1200 , 1200 ,1200, 1200 , 1200 ,1200 ]
+        },
+        {
+          name: "FairCent", chartType: 'line',
+          values: [1242.35, 1552.94, 1863.52, 2174.11, 2484.70, 2795.28, 3105.87, 3416.46]
+        },
+        {
+          name: "AYUDA", chartType: 'line',
+          values: [1547.12, 1864.38, 2083.56, 2447.72, 2702.71, 2983.41, 3380.94, 3985.87]
+        }
+      ],
+
+      yMarkers: [{ label: "Returns", value: 70,
+        options: { labelPos: 'left' }}],
+      yRegions: [{ label: "Invest", start: 0, end: 50,
+        options: { labelPos: 'right' }}]
+      },
+      lineOptions: {
+      dotSize: 6, // default: 4
+      areaFill: 1
+      },
+      axisOptions: {
+      xIsSeries: true // default: false
+      },
+      title: "",
+      type: 'line', // or 'bar', 'line', 'pie', 'percentage'
+      height: 400,
+      colors: ['purple', '#ffa3ef', 'light-blue'],
+
+      tooltipOptions: {
+        formatTooltipX: d => (d + '').toUpperCase(),
+        formatTooltipY: d => 'Rs.' + d ,
+      }
+    });
+
+
+    </script>
 
 
 </body>

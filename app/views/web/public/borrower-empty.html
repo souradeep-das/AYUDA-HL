@@ -181,22 +181,15 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a class="active-menu" href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        <a href="/borrowerDashboard"><i class="fa fa-dashboard"></i> Borrower Dashboard</a>
                     </li>
 
 
 
                     <li>
-                        <a href="table.html"><i class="fa fa-table"></i> Loan Summary</a>
-                    </li>
-                    <li>
-                        <a href="form.html"><i class="fa fa-edit"></i> Request for a Loan</a>
+                        <a class="active-menu"><i class="fa fa-table"></i> Borrower Loan Summary</a>
                     </li>
 
-
-                    <li>
-                        <a href="empty.html"><i class="fa fa-fw fa-file"></i> Empty Page</a>
-                    </li>
                 </ul>
 
             </div>
@@ -245,11 +238,12 @@
     var html = "";
     for(var i = 0; i < data.length; i++) {
       foo = data[i].interest;
+      html += "<br><h1>Loan " + i + "</h1><br><br>";
       for(var j = 0; j < foo.length; j++) {
         console.log(foo[j])
 
 
-      html += "<div class=\"col-md-4 col-sm-4\"><div class=\"panel panel-primary\"><div class=\"panel-heading\">" + "Lender " + j + "</div><div class=\"panel-body\"><p>" + "Lender : " + foo[j].lender + "<br>" + "Rate : " + foo[j].rate + "<br>" + "</p></div><div class=\"panel-footer\"></div></div></div>"
+      html += "<div class=\"col-md-4 col-sm-4\"><div class=\"panel panel-primary\"><div class=\"panel-heading\">" + "Lender " + j + "</div><div class=\"panel-body\"><p>" + "Lender : " + foo[j].lender + "<br>" + "Rate : <b>" + foo[j].rate + "</b><br>" + "</p></div><div class=\"panel-footer\"></div></div></div>"
       }
     }
 
