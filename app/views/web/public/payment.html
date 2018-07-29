@@ -1,172 +1,155 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Complete Payment</title>
-  <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/spreedly/sample-payment-frame/master/css/styles.css">
-  <script src="https://core.spreedly.com/iframe/iframe-v1.min.js"></script>
+<html><head><title>Ayuda Payment Gateway</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<div class="row">
+<style>body { margin:50px auto; width:600px;}
 
-<body>
+/* CSS for Credit Card Payment form */
+.credit-card-box .panel-title {
+    display: inline;
+    font-weight: bold;
+}
+.credit-card-box .form-control.error {
+    border-color: red;
+    outline: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(255,0,0,0.6);
+}
+.credit-card-box label.error {
+  font-weight: bold;
+  color: red;
+  padding: 2px 8px;
+  margin-top: 2px;
+}
+.credit-card-box .payment-errors {
+  font-weight: bold;
+  color: red;
+  padding: 2px 8px;
+  margin-top: 2px;
+}
+.credit-card-box label {
+    display: block;
+}
+/* The old "center div vertically" hack */
+.credit-card-box .display-table {
+    display: table;
+}
+.credit-card-box .display-tr {
+    display: table-row;
+}
+.credit-card-box .display-td {
+    display: table-cell;
+    vertical-align: middle;
+    width: 50%;
+}
+/* Just looks nicer */
+.credit-card-box .panel-heading img {
+    min-width: 180px;
+}</style>
+	<body>
 
-  <form id="payment-form" accept-charset="UTF-8" class="spf-form" method="POST"
-    action="/">
+<div class="container">
 
-    <input type="hidden" name="payment_method_token" id="payment_method_token" value="" />
-
-    <fieldset class="spf-fs-name">
-      <h2>Name</h2>
-      <div class="spf-field spf-field-fname">
-        <label class="internal" for="spf-fname">First Name</label>
-        <input type="text" class="spf-input-text" id="first_name">
-      </div>
-      <div class="spf-field spf-field-lname">
-        <label class="internal" for="spf-lname">Last Name</label>
-        <input type="text" class="spf-input-text" id="last_name">
-      </div>
-    </fieldset>
-
-    <!-- If you want billing address, uncomment -->
-    <!--
-    <fieldset class="spf-fs-address">
-      <h2>Billing Address</h2>
-      <div class="spf-field spf-field-street">
-        <label class="internal" for="spf-street">Street Address</label>
-        <input type="text" class="spf-input-text" id="address1">
-      </div>
-      <div class="spf-field spf-field-street-2">
-        <input type="text" class="spf-input-text" id="address2">
-      </div>
-      <div class="spf-field spf-field-city">
-        <label class="internal" for="spf-city">City</label>
-        <input type="text" class="spf-input-text" id="city">
-      </div>
-      <div class="spf-field spf-field-state">
-        <label class="internal" for="spf-state">State</label>
-        <input type="text" class="spf-input-text" id="state">
-      </div>
-      <div class="spf-field spf-field-postcode">
-        <label class="internal" for="spf-postcode">Zip Code</label>
-        <input type="text" class="spf-input-text" id="zip">
-      </div>
-      <div class="spf-field spf-field-country">
-        <label class="internal" for="spf-country">Country</label>
-        <input type="text" class="spf-input-text" id="country">
-      </div>
-    </fieldset>
-    -->
-
-    <fieldset class="spf-fs-cc">
-      <h2>Payment Details</h2>
-
-      <div class="spf-field">
-        <label class="spf-field-group spf-number">Credit Card Number</label>
-        <label class="spf-field-group spf-verification_value">CVV</label>
-        <div id="spreedly-number-test" class="spf-field-group spf-number spf-field-cc">
-        </div>
-        <div id="spreedly-cvv-test" class="spf-field-group spf-verification_value spf-field-cc">
-        </div>
-      </div>
-
-      <div class="spf-field spf-field-exp">
-        <label>Expiration Date</label>
-        <div class="spf-field-group spf-month">
-          <input type="text" class="spf-input-text spf-exp" id="month" size="3" maxlength="2" placeholder="MM">
-          <!-- <label class="spf-label-secondary" for="spf-exp-m">Month (MM)</label> -->
-        </div>
-        <span class="spf-exp-divider">/</span>
-        <div class="spf-field-group spf-year">
-          <input type="text" class="spf-input-text spf-exp" id="year" size="5" maxlength="4" placeholder="YYYY">
-          <!-- <label class="spf-label-secondary" for="spf-exp-y">Year (YYYY)</label> -->
-        </div>
-      </div>
-    </fieldset>
-
-    <a class="button" href="/">Confirm Payment</button>
-
-    <script
-      id="spreedly-iframe"
-      data-environment-key="TbWAYgG7qaagGBh7hPjXQxS4DM4"
-      data-number-id="spreedly-number-test"
-      data-cvv-id="spreedly-cvv-test">
-    </script>
-  </form>
-
-  <script>
-    Spreedly.init();
-
-    Spreedly.on('paymentMethod', function(token, pmData) {
-      var tokenField = document.getElementById("payment_method_token");
-      tokenField.setAttribute("value", token);
-      var masterForm = document.getElementById('payment-form');
-
-      // Normally would now submit the form..
-      // masterForm.submit();
-
-      // For demonstration purposes just display the token
-      var messageEl = document.getElementById('message');
-      messageEl.innerHTML = "Success! The returned payment method token is: " + token;
-    });
-
-    Spreedly.on('errors', function(errors) {
-      var messageEl = document.getElementById('errors');
-      var errorBorder = "1px solid red";
-      for(var i = 0; i < errors.length; i++) {
-        var error = errors[i];
-        if(error["attribute"]) {
-          var masterFormElement = document.getElementById(error["attribute"]);
-          if(masterFormElement) {
-            masterFormElement.style.border = errorBorder
-          } else {
-            Spreedly.setStyle(error["attribute"], "border: " + errorBorder + ";");
-          }
-        }
-        messageEl.innerHTML += error["message"] + "<br/>";
-      }
-    });
-
-    Spreedly.on('ready', function(frame) {
-      Spreedly.setFieldType('text')
-      Spreedly.setNumberFormat('prettyFormat');
-      Spreedly.setStyle('number','width: 67%; border-radius: 3px; border: 1px solid #ccc; padding: .65em .5em; font-size: 91%;');
-      Spreedly.setStyle('cvv', 'width: 30%; border-radius: 3px; border: 1px solid #ccc; padding: .65em .5em; font-size: 91%;');
-    });
+<!-- You can make it whatever width you want. I'm making it full width
+on <= small devices and 4/12 page width on >= medium devices -->
+<div class="col-xs-12 col-md-4">
 
 
+<!-- CREDIT CARD FORM STARTS HERE -->
+<div class="panel panel-default credit-card-box">
+<div class="panel-heading display-table" >
+<div class="row display-tr" >
+<h3 class="panel-title display-td" >Payment Details</h3>
+<div class="display-td" >                            
+<img class="img-responsive pull-right" src="http://i76.imgup.net/accepted_c22e0.png">
+</div>
+</div>                    
+</div>
+<div class="panel-body">
+<form role="form" id="payment-form">
+<div class="row">
+<div class="col-xs-12">
+<div class="form-group">
+<label for="cardNumber">CARD NUMBER</label>
+<div class="input-group">
+<input 
+type="tel"
+class="form-control"
+name="cardNumber"
+placeholder="Valid Card Number"
+autocomplete="cc-number"
+required autofocus 
+/>
+<span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+</div>
+</div>                            
+</div>
+</div>
+<div class="row">
+<div class="col-xs-7 col-md-7">
+<div class="form-group">
+<label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
+<input 
+type="tel" 
+class="form-control" 
+name="cardExpiry"
+placeholder="MM / YY"
+autocomplete="cc-exp"
+required 
+/>
+</div>
+</div>
+<div class="col-xs-5 col-md-5 pull-right">
+<div class="form-group">
+<label for="cardCVC">CV CODE</label>
+<input 
+type="tel" 
+class="form-control"
+name="cardCVC"
+placeholder="CVC"
+autocomplete="cc-csc"
+required
+/>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12">
+<div class="form-group">
+<label for="couponCode">COUPON CODE</label>
+<input type="text" class="form-control" name="couponCode" />
+</div>
+</div>                        
+</div>
+<div class="row">
+<div class="col-xs-12">
+<a class="btn btn-success btn-lg btn-block" href="/">Confirm Payment</a>
+</div>
+</div>
+<div class="row" style="display:none;">
+<div class="col-xs-12">
+<p class="payment-errors"></p>
+</div>
+</div>
+</form>
+</div>
+</div>            
+<!-- CREDIT CARD FORM ENDS HERE -->
 
-    function submitPaymentForm() {
 
-      var normalBorder = "1px solid #ccc";
+</div>            
 
-      // These are the fields whose values we want to transfer *from* the
-      // master form *to* the payment frame form. Add the following if
-      // you're displaying the address:
-      // ['address1', 'address2', 'city', 'state', 'zip', 'country']
-      var paymentMethodFields = ['first_name', 'last_name', 'month', 'year']
-      options = {};
-      for(var i = 0; i < paymentMethodFields.length; i++) {
-        var field = paymentMethodFields[i];
 
-        // Reset existing styles (to clear previous errors)
-        var fieldEl = document.getElementById(field);
-        fieldEl.style.border = normalBorder;
 
-        // add value to options
-        options[field]  = fieldEl.value
-      }
+</div>
+</div>
 
-      // Reset frame styles
-      Spreedly.setStyle('number', "border: " + normalBorder + ";");
-      Spreedly.setStyle('cvv', "border: " + normalBorder + ";");
+	
 
-      // Reset previous messages
-      document.getElementById('errors').innerHTML = "";
-      document.getElementById('message').innerHTML = "";
-
-      // Tokenize!
-      Spreedly.tokenizeCreditCard(options);
-    }
-  </script>
 </body>
 </html>
