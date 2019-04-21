@@ -1,12 +1,12 @@
 # Ayuda - The Next-gen P2P Microfinance system
 
+**_This project won the second prize of ₹1,00,000 at the Blockchain Hackathon_**.
 [![TechGig CodeGladiator 2018](https://static.techgig.com/Themes/Release/images/cg2018_images/cg2018-logo.png)](https://www.techgig.com/codegladiators/blockchain) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Satoshi Next Tech Lab](https://avatars3.githubusercontent.com/u/32188729?s=200&v=4)](https://github.com/SatoshiNextTechLab)
 
-**_This project won the second prize of ₹1,00,000 at the Blockchain Hackathon_**.
-
-![NIPP Blockchain Challenge 2018](https://github.com/souradeep-das/AYUDA-HL/blob/nipp/nasscom.jpg) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 
 **_This project won the first prize of ₹1,00,000 at the Blockchain Hackathon_**.
+![NIPP Blockchain Challenge 2018](https://github.com/souradeep-das/AYUDA-HL/blob/nipp/nasscom.jpg) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+
 
 ## What is Ayuda
 
