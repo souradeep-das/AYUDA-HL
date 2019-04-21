@@ -4,6 +4,10 @@
 
 **_This project won the second prize of ₹1,00,000 at the Blockchain Hackathon_**.
 
+[![NIPP Blockchain Challenge 2018](https://drive.google.com/file/d/1gXVp8lATJzFg0Amvv3pctMGLIMUNLc4R/view?usp=sharing) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+
+**_This project won the first prize of ₹1,00,000 at the Blockchain Hackathon_**.
+
 ## What is Ayuda
 
 Ayuda is a not for profit, blockchain based peer-peer money lending platform. Our platform connects lenders and borrowers from all across the globe because we believe that your will to help someone is much greater than the miles supporting you. The platform makes sure that every person using the platform is benefitted. Doing this we are able to sustain a proper give and take a situation where everyone is benefitted. The platform allows a lender to partially pay for a loan request. We use an innovative dynamic-interest rate method to incentivize our lenders.In this way, the lenders will pool as much money as possible to get more incentive. Our state-of-art algorithm decides the interest rate for the lenders dynamically on the basis of the proportion of money paid by a lender for a particular loan while maintaining the fixed interest rate for the borrower.
