@@ -27,7 +27,7 @@ Ayuda is a not for profit, blockchain based peer-peer money lending platform. Ou
 
 ## Watch the Prototype Demo & Concept video
 
-[![Product Demo](https://img.youtube.com/vi/qcIV0KIzFwA/0.jpg)](https://www.youtube.com/watch?v=qcIV0KIzFwA) [![Concept Demo](https://www.youtube.com/watch?v=ymcxRwf5uuA&t=2s)
+[![Product Demo](https://img.youtube.com/vi/qcIV0KIzFwA/0.jpg)](https://www.youtube.com/watch?v=qcIV0KIzFwA) [![Concept Demo](https://img.youtube.com/vi/tUHbLQloUxg/0.jpg)](https://www.youtube.com/watch?v=ymcxRwf5uuA&t=2s)
 
 ## Get started with a Quick Demo
 
