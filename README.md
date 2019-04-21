@@ -4,7 +4,7 @@
 
 **_This project won the second prize of ₹1,00,000 at the Blockchain Hackathon_**.
 
-[![NIPP Blockchain Challenge 2018](https://drive.google.com/file/d/1gXVp8lATJzFg0Amvv3pctMGLIMUNLc4R/view?usp=sharing) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+[![NIPP Blockchain Challenge 2018](https://github.com/souradeep-das/AYUDA-HL/blob/nipp/nasscom.jpg) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 
 **_This project won the first prize of ₹1,00,000 at the Blockchain Hackathon_**.
 
