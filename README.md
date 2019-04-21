@@ -21,7 +21,7 @@ Ayuda is a not for profit, blockchain based peer-peer money lending platform. Ou
 ![Ayuda Working](https://github.com/souradeep-das/AYUDA/raw/master/Capture6.PNG)
 ![Ayuda FP](https://raw.githubusercontent.com/souradeep-das/AYUDA-HL/master/DOCS/Why%20Field%20Partners-image.png)
 
-## Read the Whitepaper (HyperLedger and Ethereum)
+## Learn More (HyperLedger and Ethereum)
 
 [![HyperLedger](https://media.licdn.com/dms/image/C510BAQHIPoETQXdY0Q/company-logo_200_200/0?e=2159024400&v=beta&t=zsEfG0DGt_MPTImYAC72wCvDdkTqOBIP7_ChsEAk6Ms)](https://drive.google.com/open?id=1oRTd9xMKOj14l-e2cI-UWKqt3RaGk6CL) [![Ethereum](https://avatars1.githubusercontent.com/u/6250754?s=200&v=4)](https://drive.google.com/open?id=1sMnH8cYXoqG_3oq-ZfYQnA1liu2BhpVy)
 
